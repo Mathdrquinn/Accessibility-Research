@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en-US"
+      dir="ltr"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    >
+    <meta name="robots"
+          content="index, follow"
+    >
+    <meta http-equiv="X-UA-Compatible"
+          content="ie=edge"
+    >
+    <title>HTML</title>
+    <style>
+        body {
+            font-size: 1rem;
+        }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(1px, 1px, 1px, 1px);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            position: relative;
+        }
+
+        h1 a,
+        h2 a,
+        h3 a,
+        h4 a,
+        h5 a,
+        h6 a {
+            display: inline-block;
+            left: -1.5rem;
+            position: absolute;
+            top: 0;
+        }
+
+        main {
+            padding: 1rem 1rem 1rem 2rem;
+        }
+
+        main > * + * {
+            margin: 1rem 0;
+        }
+
+        dt + dd {
+            margin-bottom: 1rem;
+        }
+
+        code {
+            background-color: #EBE8E6;
+            border: 1px solid #7F757D;
+            border-radius: 2px;
+            color: #BA5BCB;
+            padding: 0 0.25rem;
+        }
+
+        pre {
+            background-color: #EBE8E6;
+            border: 1px solid #7F757D;
+            border-radius: 2px;
+            color: #BA5BCB;
+            padding: 1rem;
+        }
+
+        pre > code {
+            background-color: inherit;
+            border: none;
+            border-radius: inherit;
+            color: inherit;
+            padding: 0;
+        }
+
+        [role="note"] {
+            background-color: rgba(52, 152, 121, 0.2);
+            border-left: 0.25rem solid rgb(52, 152, 121);
+            font-size: 0.75rem;
+            margin: 0 1rem;
+            padding: 1rem;
+        }
+
+        [role="note"]::before {
+            content: 'N.B. ';
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+<noscript>
+    Appears when scripting is disabled. Ergo you have javascript disabled. No problem, I'm not using any.
+</noscript>
+<ul>
+    <li><a href="#Main">Jump to main content</a></li>
+</ul>
+<main id="Main">
+    <h1 id="HTML">
+        HTML
+        <a href="#HTML">¶<span class="visually-hidden">(self-link)</span></a>
+    </h1>
+    <h6>Important Notes</h6>
+    <p>note on HTML were either directly pulled from or paraphrased versions of content on <cite><a href="https://www.w3.org/TR/html51/">W3C's HTML 5.1 spec</a></cite>
+       and <cite><a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html">WHATWG</a></cite></p>
+    <h2 id="Document">
+        The Document
+        <a href="#Document">¶<span class="visually-hidden">(self-link)</span></a>
+    </h2>
+    <p>Every XML and HTML document in an HTML user agent is represented by a Document object</p>
+    <p>The Document API has some useful methods and attributes that I've not seen before. Take a look at a few</p>
+    <dl>
+        <dt>document . images</dt>
+        <dd>Returns an HTMLCollection of the img elements in the Document.</dd>
+        <dt>document . links</dt>
+        <dd>Returns an HTMLCollection of the a and area elements in the Document that have href attributes.</dd>
+        <dt>document . forms</dt>
+        <dd>Return an HTMLCollection of the form elements in the Document.</dd>
+        <dt>document . scripts</dt>
+        <dd>Return an HTMLCollection of the script elements in the Document.</dd>
+    </dl>
+    <section id="Elements">
+        <h2>
+            Elements
+            <a href="#Elements">¶<span class="visually-hidden">(self-link)</span></a>
+        </h2>
+        <p>Each element in HTML falls into zero or more categories that group elements with similar characteristics together. The following broad categories are
+            used in this specification:
+        </p>
+        <dl>
+            <dt>metadata content</dt>
+            <dd>
+                Presentation or behavior content
+                <br>
+                <code>base</code>, <code>link</code>, <code>meta</code>, <code>noscript</code>, <code>script</code>, <code>style</code>, <code>template</code>,
+                <code>title</code>
+            </dd>
+            <dt>flow content</dt>
+            <dd>Mostly used in the body of the document
+                <br>
+                <code>a</code>, <code>abbr</code>, <code>address</code>, <code>area*</code>, <code>article</code>, <code>aside</code>, <code>audio</code>,
+                <code>b</code>, <code>bdi</code>, <code>bdo</code>, <code>blockquote</code>, <code>br</code>, <code>button</code>, <code>canvas</code>,
+                <code>cite</code>, <code>code</code>, <code>data</code>, <code>date</code>, <code>datalist</code>, <code>del</code>, <code>details</code>,
+                <code>dfn</code>, <code>dialog</code>, <code>div</code>, <code>dl</code>, <code>em</code>, <code>embed</code>, <code>fieldset</code>,
+                <code>figure</code>, <code>footer</code>, <code>form</code>, <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>,
+                <code>h6</code>, <code>header</code>, <code>hr</code>, <code>i</code>, <code>iframe</code>, <code>img</code>, <code>input</code>,
+                <code>ins</code>,
+                <code>kbd</code>, <code>label</code>, <code>link*</code>, <code>main</code>, <code>map</code>, <code>mark</code>, <code>math</code>,
+                <code>menu</code>, <code>meta*</code>, <code>meter</code>, <code>nav</code>, <code>noscript</code>, <code>object</code>, <code>ol</code>, <code>output</code>,
+                <code>p</code>, <code>pre</code>, <code>progress</code>, <code>q</code>, <code>ruby</code>, <code>s</code>, <code>samp</code>,
+                <code>script</code>,
+                <code>section</code>, <code>select</code>, <code>small</code>, <code>span</code>, <code>strong</code>, <code>style*</code>, <code>sub</code>,
+                <code>sup</code>,
+                <code>svg</code>, <code>table</code>, <code>template</code>, <code>textarea</code>, <code>time</code>, <code>u</code>, <code>ul</code>,
+                <code>var</code>, <code>video</code>, <code>wbr</code>
+            </dd>
+            <dt>sectioning content</dt>
+            <dd>
+                is content that defines the scope of <a href="#Heading-Content">heading</a> and footers
+                <br>
+                <code>article</code>, <code>aside</code>, <code>nav</code>, <code>section</code>
+            </dd>
+            <dt id="Heading-Content">heading content</dt>
+            <dd>
+                defines the header of a section
+                <br>
+                <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>, <code>h6</code>
+            </dd>
+            <dt>phrasing content</dt>
+            <dd>
+                is the text of the document, as well as elements that mark up that text at the intra-paragraph level
+                <br>
+                <code>a*</code>, <code>abbr</code>, <code>area*</code>, <code>audio</code>, <code>b</code>, <code>bdi</code>, <code>bdo</code>, <code>br</code>,
+                <code>button</code>, <code>canvas</code>, <code>cite</code>, <code>code</code>, <code>data</code>, <code>date</code>, <code>datalist</code>,
+                <code>del*</code>,
+                <code>dfn</code>, <code>em</code>, <code>embed</code>, <code>i</code>, <code>iframe</code>, <code>img</code>, <code>input</code>,
+                <code>ins*</code>,
+                <code>kbd</code>, <code>label</code>, <code>link*</code>, <code>map*</code>, <code>mark</code>, <code>math</code>, <code>meta*</code>,
+                <code>meter</code>, <code>noscript</code>, <code>object</code>, <code>output</code>, <code>progress</code>, <code>q</code>, <code>ruby</code>,
+                <code>s</code>, <code>samp</code>, <code>script</code>, <code>select</code>, <code>small</code>, <code>span</code>, <code>strong</code>,
+                <code>sub</code>, <code>sup</code>, <code>svg</code>, <code>template</code>, <code>textarea</code>, <code>time</code>, <code>u</code>,
+                <code>var</code>, <code>video</code>, <code>wbr</code>
+            </dd>
+            <dt>embedded content</dt>
+            <dd>
+                is content that imports another resource into the document, or content from another vocabulary that is inserted into the document
+                <br>
+                <code>audio</code>, <code>canvas</code>, <code>embed</code>, <code>iframe</code>, <code>img</code>, <code>math</code>, <code>object</code>,
+                <code>svg</code>,
+                <code>video</code>
+            </dd>
+            <dt>interactive content</dt>
+            <dd>
+                is content that is specifically intended for user interaction
+                <br>
+                <code>a*</code>, <code>audio*</code>, <code>button</code>, <code>details</code>, <code>embed</code>, <code>iframe</code>, <code>img*</code>,
+                <code>input*</code>,
+                <code>label</code>, <code><s>object*</s></code>, <code>select</code>, <code>textarea</code>, <code>video*</code>
+            </dd>
+        </dl>
+    </section>
+    <section id="Attributes">
+        <h2>
+            Attributes
+            <a href="#Attributes">¶<span class="visually-hidden">(self-link)</span></a>
+        </h2>
+        <section id="Global-Attributes">
+            <h3>
+                Global Attributes
+                <a href="#Global-Attributes">¶<span class="visually-hidden">(self-link)</span></a>
+            </h3>
+            <p>Attributes that may be applied to all HTML elements:</p>
+            <dl>
+                <dt><code>accesskey</code></dt>
+                <dd></dd>
+                <dt><code>aria-*</code></dt>
+                <dd><a href="../aria/index.md">See my other notes on wai-aria</a></dd>
+                <dt><code>class</code></dt>
+                <dd></dd>
+                <dt><code>contenteditable</code></dt>
+                <dd></dd>
+                <dt><code>contextmenu</code></dt>
+                <dd></dd>
+                <dt><code>data-*</code></dt>
+                <dd>
+                    Custom data attributes (e.g., <code>data-foldername="dir"</code>, <code>data-msg-id="123"</code>) can be specified on any HTML element, to
+                    store
+                    custom data specific to the page and accessed by the <code>.dataset</code> property returning an object of mapped key string value pairs.
+                    Given the previous example it would yield:
+                    <pre><code>
+                        {
+                            foldername: "dir",
+                            msgId: "123"
+                        }
+                    </code></pre>
+                </dd>
+                <dt><code>dir</code></dt>
+                <dd dir="ltr">
+                    <p>
+                        The attribute specifies the element’s text directionality. The attribute is an enumerated attribute with the following keywords and
+                        states:
+                    </p>
+                    <ul>
+                        <li><abbr title="left to right"><code>ltr</code></abbr></li>
+                        <li><abbr title="right to left"><code>right to left</code></abbr></li>
+                        <li><code>auto</code></li>
+                    </ul>
+                </dd>
+                <dt><code>draggable</code></dt>
+                <dd></dd>
+                <dt><code>hidden</code></dt>
+                <dd></dd>
+                <dt><code>id</code></dt>
+                <dd>The id attribute specifies its element’s unique identifier (ID).
+                    The value must be unique amongst all the IDs in the element’s home subtree and must contain at least one character. The value must not
+                    contain any space characters.
+                </dd>
+                <dt><code>lang</code></dt>
+                <dd>The lang attribute (in no namespace) specifies the primary language for the element’s contents and for any of the element’s attributes that contain text.  An explanation of language enumerations can be found
+                    <a href="http://www.rfc-editor.org/rfc/rfc5646.txt">here</a>
+                <dt><code>spellcheck</code></dt>
+                <dd></dd>
+                <dt><code>style</code></dt>
+                <dd></dd>
+                <dt><code>tabindex</code></dt>
+                <dd></dd>
+                <dt><code>title</code></dt>
+                <dd>
+                    <p>
+                        The title attribute represents advisory information for the element, such as would be appropriate for a tooltip. On a link, this could
+                        be the title or a description of the target resource; on an image, it could be the image credit or a description of the image; on a
+                        paragraph, it could be a footnote or commentary on the text; on a citation, it could be further information about the source; on
+                        interactive content, it could be a label for, or instructions for, use of the element; and so forth. The value is text.
+                    </p>
+                    <aside role="note">
+                        <p>Relying on the title attribute is currently discouraged as many user agents do not expose the attribute in an accessible manner as
+                            required by this specification (e.g., requiring a pointing device such as a mouse to cause a tooltip to appear, which excludes
+                            keyboard-only users and touch-only users, such as anyone with a modern phone or tablet).
+                            <br>
+                            A fantastic alternative is accessible tool-tips.  Examples as laid out by Heydon Pickering in this great article <a href="https://inclusive-components.design/tooltips-toggletips/">"Tooltips Toggletips"</a>
+                        </p>
+                    </aside>
+                    <p>Some elements, such as link, abbr, and input, define additional semantics for the title attribute beyond the semantics described above.</p>
+                </dd>
+                <dt><code>translate</code></dt>
+                <dd>
+                    The translate global attribute is an enumerated attribute that is used to specify whether an element's attribute values and the values of
+                    its Text
+                    node children are to be translated when the page is localized, or whether to leave them unchanged. It can have the following values:
+                    <ul>
+                        <li>empty string and "yes", which indicates that the element should be translated when the page is localized.</li>
+                        <li>"no", which indicates that the element must not be translated.</li>
+                    </ul>
+                </dd>
+            </dl>
+        </section>
+        <section id="Global-Event-Attributes">
+            <h3>
+                Global Event Attributes
+                <a href="#Global-Event-Attributes">¶<span class="visually-hidden">(self-link)</span></a>
+            </h3>
+            <dl>
+                <dt><code>onabort</code></dt>
+                <dd></dd>
+                <dt><code>onblur</code></dt>
+                <dd></dd>
+                <dt><code>oncancel</code></dt>
+                <dd></dd>
+                <dt><code>oncancelplaythrough</code></dt>
+                <dd></dd>
+                <dt><code>onchange</code></dt>
+                <dd></dd>
+                <dt><code>onclick</code></dt>
+                <dd></dd>
+                <dt><code>onclose</code></dt>
+                <dd></dd>
+                <dt><code>oncontextmenu</code></dt>
+                <dd></dd>
+                <dt><code>oncopy</code></dt>
+                <dd></dd>
+                <dt><code>oncuechange</code></dt>
+                <dd></dd>
+                <dt><code>oncut</code></dt>
+                <dd></dd>
+                <dt><code>ondblclick</code></dt>
+                <dd></dd>
+                <dt><code>ondrag</code></dt>
+                <dd></dd>
+                <dt><code>ondragend</code></dt>
+                <dd></dd>
+                <dt><code>ondragenter</code></dt>
+                <dd></dd>
+                <dt><code>ondragexit</code></dt>
+                <dd></dd>
+                <dt><code>ondragleave</code></dt>
+                <dd></dd>
+                <dt><code>ondragover</code></dt>
+                <dd></dd>
+                <dt><code>ondragstart</code></dt>
+                <dd></dd>
+                <dt><code>ondrop</code></dt>
+                <dd></dd>
+                <dt><code>ondurationchange</code></dt>
+                <dd></dd>
+                <dt><code>onemptied</code></dt>
+                <dd></dd>
+                <dt><code>onended</code></dt>
+                <dd></dd>
+                <dt><code>onerror</code></dt>
+                <dd></dd>
+                <dt><code>onfocus</code></dt>
+                <dd></dd>
+                <dt><code>oninput</code></dt>
+                <dd></dd>
+                <dt><code>oninvalid</code></dt>
+                <dd></dd>
+                <dt><code>onkeydown</code></dt>
+                <dd></dd>
+                <dt><code>onkeypress</code></dt>
+                <dd></dd>
+                <dt><code>onkeyup</code></dt>
+                <dd></dd>
+                <dt><code>onload</code></dt>
+                <dd></dd>
+                <dt><code>onleadeddata</code></dt>
+                <dd></dd>
+                <dt><code>onloadedmetadata</code></dt>
+                <dd></dd>
+                <dt><code>onloadstart</code></dt>
+                <dd></dd>
+                <dt><code>onmousedown</code></dt>
+                <dd></dd>
+                <dt><code>onmouseenter</code></dt>
+                <dd></dd>
+                <dt><code>onmouseleave</code></dt>
+                <dd></dd>
+                <dt><code>onmousemove</code></dt>
+                <dd></dd>
+                <dt><code>onmouseout</code></dt>
+                <dd></dd>
+                <dt><code>onmouseup</code></dt>
+                <dd></dd>
+                <dt><code>onwheel</code></dt>
+                <dd></dd>
+                <dt><code>onpaste</code></dt>
+                <dd></dd>
+                <dt><code>onpause</code></dt>
+                <dd></dd>
+                <dt><code>onplay</code></dt>
+                <dd></dd>
+                <dt><code>onplaying</code></dt>
+                <dd></dd>
+                <dt><code>onprogress</code></dt>
+                <dd></dd>
+                <dt><code>onratechange</code></dt>
+                <dd></dd>
+                <dt><code>onreset</code></dt>
+                <dd></dd>
+                <dt><code>onresize</code></dt>
+                <dd></dd>
+                <dt><code>onscroll</code></dt>
+                <dd></dd>
+                <dt><code>onseeked</code></dt>
+                <dd></dd>
+                <dt><code>onseeking</code></dt>
+                <dd></dd>
+                <dt><code>onselect</code></dt>
+                <dd></dd>
+                <dt><code>onshow</code></dt>
+                <dd></dd>
+                <dt><code>onstalled</code></dt>
+                <dd></dd>
+                <dt><code>onsubmit</code></dt>
+                <dd></dd>
+                <dt><code>onsuspend</code></dt>
+                <dd></dd>
+                <dt><code>ontimeupdate</code></dt>
+                <dd></dd>
+                <dt><code>ontoggle</code></dt>
+                <dd></dd>
+                <dt><code>onvolumechange</code></dt>
+                <dd></dd>
+                <dt><code>onwaiting</code></dt>
+                <dd></dd>
+            </dl>
+        </section>
+    </section>
+</main>
+</body>
+</html>
