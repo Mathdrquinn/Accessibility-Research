@@ -86,6 +86,11 @@ Live Region State Attributes
 - aria-atomic (property)
 - aria-busy
 - aria-live
+    has enumerated values:
+    - "off" 
+    - "polite": when reader is in an idle state, the content changes of this element will be announced
+    - "assertive": when text content is updated the region is spoken immediately
+    
 - aria-relevant
 
 Drag-and-Drop Attributes§
